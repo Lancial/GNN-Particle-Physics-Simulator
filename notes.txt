@@ -1,0 +1,28 @@
+
+X(next) = Update(X(current), d_theta), euler integrator, accelerations
+
+
+Encoder:
+
+    G = encoder(X), G = (V, E, u)
+
+    embed the particle-based state representation X as a latent graph
+        [term] latent graph learning: a graph with an empty edgeset? The graph is updated dynamically?
+    
+    Nodes embedding(v) and edges embedding(e) are learnable
+
+    Edges are created between nodes that have potential interaction
+
+    global embedding(u) such as gravity and magnetic field
+
+
+Processor:
+    via M steps, each steps produce a new latent graph
+    output the final latent graph
+    complexity of the problem decides number we want to use for M 
+
+Decoder:
+    extract dynamics information Y (which represents acceleration in our case?)
+
+
+[term] multilayer perceptrons(MPL): I think this is just a term for fully connected layers
