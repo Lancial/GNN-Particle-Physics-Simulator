@@ -1,0 +1,190 @@
+body, h1, h2, h3, h4, h5, h6 {
+  font-family: "Lato", sans-serif;
+}
+
+body, html {
+  height: 100%;
+  color: #777;
+  line-height: 1.8;
+}
+
+section {
+  display: block;
+  position: relative;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* Create a Parallax Effect */
+
+.bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4, .bgimg-5, .bgimg-6{
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+/* First image (Logo. Full height) */
+
+.bgimg-1 {
+  background-image: url('images/Nice_Group.jpg');
+  min-height: 100%;
+}
+
+/* Second image (Join) */
+
+.bgimg-2 {
+  background-image: url("images/tourney.jpg");
+  min-height: 400px;
+}
+
+
+.w3-wide {
+  letter-spacing: 10px;
+}
+
+.w3-hover-opacity {
+  cursor: pointer;
+}
+
+/* Turn off parallax scrolling for tablets and phones */
+
+@media only screen and (max-device-width: 800px) {
+  .bgimg-1, .bgimg-2, .bgimg-3, .bgimg-4 {
+    background-attachment: scroll;
+  }
+}
+
+#dummy {
+  display: none;
+}
+
+.button {
+  background-color: inherit;
+  border: solid #4b2e83;
+  color: #4b2e83;
+  padding: 16px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  -webkit-transition-duration: 0.4s;
+  /* Safari */
+  transition-duration: 0.4s;
+  cursor: pointer;
+}
+
+.button1:hover {
+  background-color: #4b2e83;
+  color: white;
+  border: 2px solid #4b2e83;
+}
+
+.column {
+  float: left;
+  width: 33.33%;
+  margin: auto;
+  display: block;
+}
+
+/* Clear floats after the columns */
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.icon {
+  position: relative;
+  cursor: default;
+  display: block;
+  opacity: 0.35;
+  text-align: center;
+  padding: 0;
+  border: 0;
+  font-size: 300%;
+  vertical-align: baseline;
+}
+
+/* The dropdown container */
+
+.dropdown {
+  float: right;
+  overflow: visible;
+}
+
+/* Dropdown button */
+
+.dropdown .dropbtn {
+  font-size: 15px;
+  border: none;
+  outline: none;
+  color: inherit;
+  padding: 8px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  /* Important for vertical align on mobile phones */
+  margin: 0;
+  /* Important for vertical align on mobile phones */
+}
+
+/* Add a gray background color to navbar links on hover */
+
+.dropdown:hover .dropbtn {
+  background-color: #ccc;
+}
+
+/* Dropdown content (hidden by default) */
+
+.dropdown-content {
+  display: none;
+  position: fixed;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  right: 0;
+}
+
+/* Links inside the dropdown */
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+table {
+  margin: auto;
+  padding: 10px;
+  text-align: center;
+}
+
+.center {
+  margin: auto;
+  text-align: center;
+}
+
+.col-md {
+  padding-bottom: 15px;
+}
