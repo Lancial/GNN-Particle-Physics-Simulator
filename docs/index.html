@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>hello</title>
+  <title>CSE 490G Final Project</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -225,6 +225,45 @@
                     boundary, repulsion, and attractions. Through training more steps, the model will be able to
                     produce higher quality result as the paper has demonstrated.
                   </p>
+                  <h3>Tuning hyperparameters</h3>
+                  <p>Nick's results go here.
+                  </p>
+                  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corporis asperiores repudiandae dicta
+                    pariatur praesentium nisi, libero aliquid nostrum in harum. Possimus molestias, quasi a consequuntur
+                    distinctio doloribus aliquam laudantium enim?
+                  </p>
+                  <h3>Other Experiments</h3>
+                  </br>
+                  <h5>Changing the stride of residual connection in messeage-passing steps:</h5>
+                  residual connection are implemented directly by adding the latent vectors of nodes and edges from a
+                  previous graph
+                  to the next graph. Previous residual connect is made every messag step and we experiments. We
+                  experimented with adding stride
+                  to residual connection.
+                  </br>
+                  <img src="experiments_related/stride.gif" width="450" alt="Image"><img src="images/stride.png"
+                    width="250" alt="Image">
+                  </br>
+                  </br>
+                  <h5>Apply Layernorm for the decoder:</h5>
+                  Previously Layernorm is applied in the encoding step and the message-passing steps. We apply layer
+                  normalization to the decoder.
+                  </br>
+                  <img src="images/stride.png" width="300" alt="Image">
+                  </br>
+                  </br>
+                  <h5>Different boundary conditions:</h5>
+                  During feature extraction, the distance from particles to boundaries are normalized with the radius
+                  that also defines the connectivity. Then it was clip to -1 to 1. In previous experiments we found that
+                  particles were able to recognize boundaries but not very accurately. They behaves strangely when an
+                  acceleration
+                  drive them surpassing boundaries. Some started clusting, some even picked up another virtual boundary
+                  that was below
+                  the actual one. So we took away the clipping, hopeing the model was able learn more by punish a larger
+                  negative value.
+                  </br>
+                  </br>
+                  <h3>Attemps with LSTM</h3>
                 </div>
               </div>
             </div>
