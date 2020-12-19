@@ -235,7 +235,8 @@
                     One of the unique features of a graph network is its ability for nodes to "talk" with one another
                     via message passing. We seek to investigate the impact the distance messages can traverse on
                     network performance and evaluate the importance of this parameter. Specifically we looked at
-                    four values for message passin: 3, 7, 10 (default) and 20. Note that the networks for 3 and 7 steps were
+                    four values for message passin: 3, 7, 10 (default) and 20. Note that the networks for 3 and 7 steps
+                    were
                     both trained for 20,000 iterations. The networks for 10 and 20 steps were trained for 15,416 and
                     15985 iterations due to computational constraints. Additionally, the final smooth loss value was
                     calculated using an exponential moving average with a weight of .5 .
@@ -268,8 +269,10 @@
                     emulating the simulation. Each model performed relatively poorly on simulating the ground truth.
                     This is in line with earlier results showing that even at 20000 iterations of training the models
                     struggled to achieve high similarity with the ground truth. Due to computaitonal limitations, we
-                    were not able to train the models beyond this point; future work would center on training these models
-                    significantly longer to see if there is more of a discernible impact on the number of messaging steps.
+                    were not able to train the models beyond this point; future work would center on training these
+                    models
+                    significantly longer to see if there is more of a discernible impact on the number of messaging
+                    steps.
                   </p>
                   <h3>Other Experiments</h3>
                   </br>
@@ -319,28 +322,65 @@
                   <h3>Attemps with LSTM</h3>
                   One of the exeriments we sought to run was to try to implement a particle physics simulator using an
                   LSTM Model. Our inital experience with LSTM had been with solely single dimensional series prediction;
-                  however, the particle physics simulations contained thousands of particles in a given simulation. Thus,
-                  we searched for architectures and different LSTM variations to try to find implmentations of multivariate
-                  predictions. One of the main examples of this was with traffic matrix predictions We initially looked at a pure
-                  LSTM framework for traffic prediction (https://arxiv.org/pdf/1710.06799.pdf). This framework showed promise
-                  in being able to predict multiple time series simultaneously. This was achieved by tranforming the input data.
+                  however, the particle physics simulations contained thousands of particles in a given simulation.
+                  Thus,
+                  we searched for architectures and different LSTM variations to try to find implmentations of
+                  multivariate
+                  predictions. One of the main examples of this was with traffic matrix predictions We initially looked
+                  at a pure
+                  LSTM framework for traffic prediction[2]. This framework showed
+                  promise
+                  in being able to predict multiple time series simultaneously. This was achieved by tranforming the
+                  input data.
                   Each time series of identical length would be stacked to form an input matrix X of size n by t, where
-                  each row of n rows was a concurrent time series of length t. However, these long time series were not effective
-                  for training and thus these series were subsampled into windowed sections of width w. These sections could be
-                  then stacked to form batches of size b creating new inputs X of size n x w x b. We applied these transformations
-                  to the particle physics time series whichc consisted of x and y positions. However, this input only contained
-                  the time series data and lacked any relationships between the indidual particles, their type, and the x and y data.
-                  Thus, we looked into ways to incorporate all these relationships together.
-                  (Zhao et al, https://ieeexplore-ieee-org.offcampus.lib.washington.edu/stamp/stamp.jsp?tp=&arnumber=8809901).
-                  Zhao et al developed an architecture which combined a graph convolution with a GRU to develop a temporal graph
-                  convolution. This had been shown to be adaptable to use an LSTM instead of a GRU. Their experiments showed the
-                  ability to combine spatio temporal relationships; however, it had used fixed sensor locations to determing the
-                  traffic data used for analysis (https://stellargraph.readthedocs.io/en/stable/demos/time-series/gcn-lstm-time-series.html).
-                  The individual sensors were associated with a single time series and the had fixed locations and thus this architecture
-                  was not immediately generalizable to our particle physics simulations. We tried to adapt this architecture to
-                  be able to relate both the x and y time series as well as the particle type to an individual particle. However,
-                  we were not successful in this. Given more time this would be an area we would like to continue researching and
-                  try to develop a way to relate these features together in our inputs and train using a pure LSTM architecture.
+                  each row of n rows was a concurrent time series of length t. However, these long time series were not
+                  effective
+                  for training and thus these series were subsampled into windowed sections of width w. These sections
+                  could be
+                  then stacked to form batches of size b creating new inputs X of size n x w x b. We applied these
+                  transformations
+                  to the particle physics time series whichc consisted of x and y positions. However, this input only
+                  contained
+                  the time series data and lacked any relationships between the indidual particles, their type, and the
+                  x and y data.
+                  Thus, we looked into ways to incorporate all these relationships together[3].
+                  Zhao et al developed an architecture which combined a graph convolution with a GRU to develop a
+                  temporal graph
+                  convolution. This had been shown to be adaptable to use an LSTM instead of a GRU. Their experiments
+                  showed the
+                  ability to combine spatio temporal relationships; however, it had used fixed sensor locations to
+                  determing the
+                  traffic data used for analysis[4].
+                  The individual sensors were associated with a single time series and the had fixed locations and thus
+                  this architecture
+                  was not immediately generalizable to our particle physics simulations. We tried to adapt this
+                  architecture to
+                  be able to relate both the x and y time series as well as the particle type to an individual particle.
+                  However,
+                  we were not successful in this. Given more time this would be an area we would like to continue
+                  researching and
+                  try to develop a way to relate these features together in our inputs and train using a pure LSTM
+                  architecture.
+                  </br>
+                  </br>
+                  <h3>Video</h3>
+                  <video width="500" height="400" controls>
+                    <source src="images/trimed.mp4" type="video/mp4">
+
+                  </video>
+                  </br>
+                  </br>
+                  <h3>Reference</h3>
+                  1. The original paper of GNS particle simulation: <a
+                    href="https://arxiv.org/abs/2002.09405">https://arxiv.org/abs/2002.09405</a></br>
+                  2. LSTM framework for traffic prediction: <a
+                    href="https://arxiv.org/pdf/1710.06799.pdf">https://arxiv.org/pdf/1710.06799.pdf</a>
+                  </br>
+                  3. Graph convolutional network for traffic prediction: <a
+                    href="https://ieeexplore-ieee-org.offcampus.lib.washington.edu/stamp/stamp.jsp?tp=&arnumber=8809901">https://ieeexplore-ieee-org.offcampus.lib.washington.edu/stamp/stamp.jsp?tp=&arnumber=8809901</a></br>
+                  4. Forecasting using spatio-temporal data with combined Graph Convolution + LSTM mode:
+                  <a
+                    href="https://stellargraph.readthedocs.io/en/stable/demos/time-series/gcn-lstm-time-series.html">https://stellargraph.readthedocs.io/en/stable/demos/time-series/gcn-lstm-time-series.html</a>
 
                 </div>
               </div>
